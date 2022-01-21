@@ -10,12 +10,12 @@ val scala12 = "2.12.15" // up to 2.12.14
 val scala13 = "2.13.7"  // up to 2.13.7
 val scala3  = "3.1.0"   // up to 3.1.0
 
-ThisBuild / crossScalaVersions := Seq(scala12, scala11, scala13, scala3)
+ThisBuild / crossScalaVersions := Seq(scala12, scala11) // , scala13, scala3)
 ThisBuild / scalaVersion := crossScalaVersions.value.head
 
 resolvers ++= Seq(
 //  Resolvers.localResolver,  // Reserve for Two Six.
-//  Resolvers.clulabResolver, // glove
+  Resolvers.clulabResolver // glove
 //  Resolvers.jitpackResolver // Ontologies
 )
 
@@ -28,6 +28,7 @@ libraryDependencies ++= {
   }
 
   Seq(
+    "org.clulab"                %% "processors-main"          % "8.4.7",
     // local logging
     "ch.qos.logback"              % "logback-classic"         % "1.2.10",       // as of 2021-12-31 up to 1.2.10
     "com.typesafe.scala-logging" %% "scala-logging"           % "3.9.4",        // as of 2021-12-31 up to 3.9.4
